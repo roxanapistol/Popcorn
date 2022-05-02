@@ -35,3 +35,4 @@ last_name = fake.last_name()
 email = fake.email()
 full_name = f'{first_name} {last_name}'
 subject = f'Test message: today is: {datetime.datetime.now()}. '
+

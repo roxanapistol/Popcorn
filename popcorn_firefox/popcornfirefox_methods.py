@@ -165,6 +165,167 @@ def verify_homepage():
         driver.find_element(By.XPATH, '//input[@value="Submit"]').click()
         sleep(1)
 
+    else:
+        print('The website is not working.')
+
+
+def verify_who_we_are():
+    driver.get(locators.who_we_are_url)
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        print('You are on the Who We Are page.')
+    else:
+        print('You are not on the Who We Are page.')
+
+    # click on each team member and verify if their home page is opening
+    driver.find_element(By.XPATH, '//a[normalize-space()="Dennis Pang"]').click()
+    sleep(1)
+    if driver.find_element(By.XPATH, '//h1[@class="elementor-heading-title elementor-size-default"]').is_displayed():
+        sleep(1)
+        print('You are on Dennis Pang page.')
+    else:
+        print('Something is wrong, you are not on Dennis Pang page.')
+    # click on 'Team page' button
+    driver.find_element(By.XPATH, '//span[contains(text(),"TEAM PAGE")]').click()
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        sleep(1)
+        print('You are back on the Teams page.')
+    else:
+        print('Something is wrong, you are not the Teams page.')
+
+    # check Shaan Coelho
+    driver.find_element(By.XPATH, '//a[normalize-space()="Shaan Coelho"]').click()
+    sleep(1)
+    if driver.find_element(By.XPATH, '//h1[@class="elementor-heading-title elementor-size-default"]').is_displayed():
+        sleep(1)
+        print('You are on Shaan Coelho page.')
+    else:
+        print('Something is wrong, you are not on Shaan Coelho page.')
+    driver.find_element(By.XPATH, '//span[contains(text(),"TEAM PAGE")]').click()
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        sleep(1)
+        print('You are back on the Teams page.')
+    else:
+        print('Something is wrong, you are not the Teams page.')
+
+    # check Alexander Leung
+    driver.find_element(By.XPATH, '//a[normalize-space()="Alexander Leung"]').click()
+    sleep(1)
+    if driver.find_element(By.XPATH, '//h1[@class="elementor-heading-title elementor-size-default"]').is_displayed():
+        sleep(1)
+        print('You are on Alexander Leung page.')
+    else:
+        print('Something is wrong, you are not on Alexander Leung page.')
+    driver.find_element(By.XPATH, '//span[contains(text(),"TEAM PAGE")]').click()
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        sleep(1)
+        print('You are back on the Teams page.')
+    else:
+        print('Something is wrong, you are not the Teams page.')
+
+    # check Jaydene Govender
+    driver.find_element(By.XPATH, '//a[normalize-space()="Jaydene Govender"]').click()
+    sleep(1)
+    if driver.find_element(By.XPATH, '//h1[@class="elementor-heading-title elementor-size-default"]').is_displayed():
+        sleep(1)
+        print('You are on Jaydene Govender page.')
+    else:
+        print('Something is wrong, you are not on Jaydene Govender page.')
+    driver.find_element(By.XPATH, '//span[contains(text(),"TEAM PAGE")]').click()
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        sleep(1)
+        print('You are back on the Teams page.')
+    else:
+        print('Something is wrong, you are not the Teams page.')
+
+    # check Goda Linkute
+    driver.find_element(By.XPATH, '//a[normalize-space()="Goda Linkute"]').click()
+    sleep(1)
+    if driver.find_element(By.XPATH, '//h1[@class="elementor-heading-title elementor-size-default"]').is_displayed():
+        sleep(1)
+        print('You are on Goda Linkute page.')
+    else:
+        print('Something is wrong, you are not on Goda Linkute page.')
+    driver.find_element(By.XPATH, '//span[contains(text(),"TEAM PAGE")]').click()
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        sleep(1)
+        print('You are back on the Teams page.')
+    else:
+        print('Something is wrong, you are not the Teams page.')
+
+    # check Widya Sulistiani
+    driver.find_element(By.XPATH, '//a[normalize-space()="Widya Sulistiani"]').click()
+    sleep(1)
+    if driver.find_element(By.XPATH, '//h1[@class="elementor-heading-title elementor-size-default"]').is_displayed():
+        sleep(1)
+        print('You are on Widya Sulistiani page.')
+    else:
+        print('Something is wrong, you are not on Widya Sulistiani page.')
+    driver.find_element(By.XPATH, '//span[contains(text(),"TEAM PAGE")]').click()
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        sleep(1)
+        print('You are back on the Teams page.')
+    else:
+        print('Something is wrong, you are not the Teams page.')
+
+    # check Brigitta Arthamevia
+    driver.find_element(By.XPATH, '//a[normalize-space()="Brigitta Arthamevia"]').click()
+    sleep(1)
+    if driver.find_element(By.XPATH, '//h1[@class="elementor-heading-title elementor-size-default"]').is_displayed():
+        sleep(1)
+        print('You are on Brigitta Arthamevia page.')
+    else:
+        print('Something is wrong, you are not on Brigitta Arthamevia page.')
+    driver.find_element(By.XPATH, '//span[contains(text(),"TEAM PAGE")]').click()
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        sleep(1)
+        print('You are back on the Teams page.')
+    else:
+        print('Something is wrong, you are not the Teams page.')
+
+    # check Erick Alvergue
+    driver.find_element(By.XPATH, '//a[normalize-space()="Erick Alvergue"]').click()
+    sleep(1)
+    if driver.find_element(By.XPATH, '//h1[@class="elementor-heading-title elementor-size-default"]').is_displayed():
+        sleep(1)
+        print('You are on Erick Alvergue page.')
+    else:
+        print('Something is wrong, you are not on Erick Alvergue page.')
+    driver.find_element(By.XPATH, '//span[contains(text(),"TEAM PAGE")]').click()
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        sleep(1)
+        print('You are back on the Teams page.')
+    else:
+        print('Something is wrong, you are not the Teams page.')
+
+    # check Karen Li
+    driver.find_element(By.XPATH, '//a[normalize-space()="Karen Li"]').click()
+    sleep(1)
+    if driver.find_element(By.XPATH, '//h1[@class="elementor-heading-title elementor-size-default"]').is_displayed():
+        sleep(1)
+        print('You are on Karen Li page.')
+    else:
+        print('Something is wrong, you are not on Karen Li page.')
+    driver.find_element(By.XPATH, '//span[contains(text(),"TEAM PAGE")]').click()
+    sleep(1)
+    if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
+        sleep(1)
+        print('You are back on the Teams page.')
+    else:
+        print('Something is wrong, you are not the Teams page.')
+
+    # click 'Let's work together'
+    driver.find_element(By.XPATH, '//span[@class="elementor-button-text"]').click()
+    sleep(1)
+
 
 def tearDown():
     if driver is not None:
@@ -177,4 +338,5 @@ def tearDown():
 
 setUp()
 verify_homepage()
+verify_who_we_are()
 tearDown()
