@@ -7,14 +7,16 @@ import popcorn_locators as locators
 from selenium.webdriver.support.ui import Select  # this is for drop down lists
 from selenium.webdriver import Keys
 from selenium.common.exceptions import NoSuchElementException
+from webdriver_manager.chrome import ChromeDriverManager
 
-
-
-s = Service(executable_path='../chromedriver.exe')
+s = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=s)
 
 
+
+
 def setUp():
+    print(f'Test starts at {datetime.datetime.now()}.')
     print(f'-----Launch {locators.app} website.')
     driver.maximize_window()
     driver.implicitly_wait(30)
