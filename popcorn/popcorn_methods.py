@@ -31,7 +31,7 @@ def setUp():
         print(f'-----{locators.app} did not launched, check your code or application.')
         print(f'-----Current URL: {driver.current_url}, page title: {driver.title}')
 
-def verify_homepage():
+def check_homepage():
     if driver.current_url == locators.popcorn_url and driver.title == locators.popcorn_home_page_title:
         # check if 'A fresh approach for marketing & PR' is displayed
         assert driver.find_element(By.ID, 'slider-1-slide-1-layer-20').is_displayed()
@@ -171,7 +171,7 @@ def verify_homepage():
         print('Something is wrong.')
 
 
-def verify_who_we_are():
+def check_who_we_are():
     driver.get(locators.who_we_are_url)
     sleep(1)
     if driver.current_url == locators.who_we_are_url and driver.title == locators.who_we_are_title_page:
@@ -329,6 +329,162 @@ def verify_who_we_are():
     sleep(1)
 
 
+def check_contact_us_page():
+    driver.get(locators.popcorn_url)
+    sleep(1)
+    driver.find_element(By.XPATH, '//a[normalize-space()="Contact Us"]').click()
+    sleep(1)
+
+    #assert Contact Us is displayed
+    assert driver.find_element(By.XPATH, '//h2[@class="elementor-heading-title elementor-size-xxl"]').is_displayed()
+    contact = driver.find_element(By.XPATH, '//h2[@class="elementor-heading-title elementor-size-xxl"]').is_displayed()
+    if contact is not None:
+        print(f'Contact us is displayed: {contact}. ')
+    else:
+        print(f'Contact us is not displayed: {contact}.')
+
+    #start filling out the form
+    driver.find_element(By.XPATH, '//input[@placeholder="Full Name"]').send_keys(locators.full_name)
+    sleep(1)
+    driver.find_element(By.XPATH, '//input[@placeholder="Email"]').send_keys(locators.email)
+    sleep(1)
+    driver.find_element(By.XPATH, '//textarea[@placeholder="Message"]').send_keys(locators.subject)
+    sleep(1)
+    driver.find_element(By.XPATH, '//span[@class="checkbox-sign"]').click()
+    sleep(1)
+    driver.find_element(By.XPATH, '//input[@value="Submit"]').click()
+    sleep(1)
+
+
+def check_blog():
+    driver.get(locators.popcorn_url)
+    sleep(1)
+    driver.find_element(By.LINK_TEXT, 'BLOG').click()
+    print(driver.title)
+    sleep(3)
+
+    # first_article = driver.find_element(By.CLASS_NAME, 'firstp')
+    # print('PUTTING PEOPLE FIRST AT POPCORN:', first_article.text) # it's gives you the text from the article
+    # sleep(1)
+    #check if Kernel Korner is displayed
+    kernel = driver.find_element(By.XPATH, '//h2[contains(., "Kernels Korner")]').is_displayed()
+    sleep(1)
+    if kernel is not None:
+        print(f'Kernel Korner is displayed: {kernel}.')
+    else:
+        print(f'Kernel Korner is not displayed: {kernel}.')
+
+    driver.find_element(By.CSS_SELECTOR, 'article[id="post-35333"]').click()
+    sleep(1)
+    # driver.find_element(By.XPATH, '//span[contains(., "Read More")]').click()
+    # sleep(1)
+    people = driver.find_element(By.XPATH, '//h1[contains(., " Putting People First at Popcorn")]').is_displayed()
+    sleep(1)
+    people_title = driver.find_element(By.XPATH, '//h1[contains(., " Putting People First at Popcorn")]')
+    sleep(1)
+    if people is not None:
+        print(f'You are on the ', people_title.text, 'blog page.')
+    else:
+        print(f'You are not on the ', people_title.text, 'blog page.')
+
+    driver.find_element(By.LINK_TEXT, 'BLOG').click()
+    sleep(2)
+
+    element = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35358"]')
+    driver.execute_script("arguments[0].scrollIntoView()", element)
+    driver.find_element(By.CSS_SELECTOR, 'article[id="post-35358"]').click()
+    sleep(1)
+    commitment = driver.find_element(By.XPATH, '//h1[contains(., "Popcorn’s Commitment to Serving Small Businesses")]').is_displayed()
+    sleep(1)
+    commitment_title= driver.find_element(By.XPATH, '//h1[contains(., "Popcorn’s Commitment to Serving Small Businesses")]')
+    if commitment is not None:
+        print('You are on the ', commitment_title.text, 'blog page.')
+    else:
+        print('You are not on the ', commitment_title.text, 'blog page.')
+
+    driver.find_element(By.LINK_TEXT, 'BLOG').click()
+    sleep(2)
+
+    element1= driver.find_element(By.CSS_SELECTOR, 'article[id="post-35370"]')
+    driver.execute_script("arguments[0].scrollIntoView()", element1)
+    driver.find_element(By.CSS_SELECTOR, 'article[id="post-35370"]').click()
+    sleep(1)
+    social = driver.find_element(By.XPATH, '//h1[contains(., "Which Social Media Platform Is Right for Me?")]').is_displayed()
+    sleep(1)
+    social_title = driver.find_element(By.XPATH, '//h1[contains(., "Which Social Media Platform Is Right for Me?")]')
+    if social is not None:
+        print('You are on the ', social_title.text, 'blog page.')
+    else:
+        print('You are not on the ', social_title.text, 'blog page.')
+
+    driver.find_element(By.LINK_TEXT, 'BLOG').click()
+    sleep(2)
+
+    element2 = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35377"]')
+    driver.execute_script("arguments[0].scrollIntoView()", element2)
+    driver.find_element(By.CSS_SELECTOR, 'article[id="post-35377"]').click()
+    sleep(1)
+    happy = driver.find_element(By.XPATH, '//h1[contains(., "  Let’s Get Creative!")]').is_displayed()
+    sleep(1)
+    happy_title = driver.find_element(By.XPATH, '//h1[contains(., "  Let’s Get Creative!")]')
+    if happy is not None:
+        print('You are on the ', happy_title.text, 'blog page.')
+    else:
+        print('You are not on the ', happy_title.text, 'blog page.')
+
+    driver.find_element(By.LINK_TEXT, 'BLOG').click()
+    sleep(2)
+
+    element3 = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35383"]')
+    driver.execute_script("arguments[0].scrollIntoView()", element3)
+    sleep(1)
+    driver.find_element(By.CSS_SELECTOR, 'article[id="post-35383"] ').click()
+    sleep(1)
+    news = driver.find_element(By.XPATH, '//h1[contains(., "The News on Tues #7: TikTok Restrictions, PBN’s and Facebook Expansion")]').is_displayed()
+    sleep(1)
+    news_title = driver.find_element(By.XPATH, '//h1[contains(., "The News on Tues #7: TikTok Restrictions, PBN’s and Facebook Expansion")]')
+    if news is not None:
+        print('You are on the ', news_title.text, 'blog page.')
+    else:
+        print('You are not on the ', news_title.text, 'blog page.')
+
+    driver.find_element(By.LINK_TEXT, 'BLOG').click()
+    sleep(2)
+
+    element4 = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35405"]')
+    driver.execute_script("arguments[0].scrollIntoView()", element4)
+    sleep(2)
+    driver.find_element(By.XPATH, '//article[@id="post-35405"]//span[@class="gem-text-button"][normalize-space()="Read More"]').click()
+    sleep(3)
+    news2 = driver.find_element(By.XPATH, '//h1[contains(., "The News on Tues #6: A TikTok Uptick, Google Skills and New Reviews!")]').is_displayed()
+    sleep(1)
+    news2_title = driver.find_element(By.XPATH, '//h1[contains(., "The News on Tues #6: A TikTok Uptick, Google Skills and New Reviews!")]')
+    if news2 is not None:
+        print('You are on the ', news2_title.text, 'blog page.')
+    else:
+        print('You are not on the ', news2_title.text, 'blog page.')
+
+    driver.find_element(By.LINK_TEXT, 'BLOG').click()
+    sleep(2)
+
+    element5 = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35414"]')
+    driver.execute_script("arguments[0].scrollIntoView()", element5)
+    sleep(2)
+    driver.find_element(By.CSS_SELECTOR, 'article[id="post-35414"]').click()
+    sleep(1)
+    home = driver.find_element(By.XPATH,'//h1[contains(., "The News on Tues #5: Working from home, moving on from COVID, supporting SMB’s.")]').is_displayed()
+    sleep(1)
+    home_title = driver.find_element(By.XPATH,'//h1[contains(., "The News on Tues #5: Working from home, moving on from COVID, supporting SMB’s.")]')
+    sleep(1)
+    if home is not None:
+        print('You are on the ', home_title.text, 'blog page.')
+    else:
+        print('You are not on the ', home_title.text, 'blog page.')
+
+    driver.find_element(By.LINK_TEXT, 'BLOG').click()
+    sleep(2)
+
+
 
 def tearDown():
     if driver is not None:
@@ -340,6 +496,8 @@ def tearDown():
 
 
 setUp()
-verify_homepage()
-verify_who_we_are()
+#check_homepage()
+#check_who_we_are()
+check_blog()
+#check_contact_us_page()
 tearDown()
