@@ -355,6 +355,255 @@ def check_contact_us_page():
     driver.find_element(By.XPATH, '//input[@value="Submit"]').click()
     sleep(1)
 
+def verify_service_page():
+    driver.get(locators.popcorn_service_url)
+    sleep(1)
+    if driver.current_url == locators.popcorn_service_url and driver.title == locators.popcorn_service_title:
+        print(f'----- We are in Service Page!!!!')
+        print(f'-----{locators.app} Service page url: {driver.current_url}, homepage title: {driver.title}')
+    else:
+        print(f'----{locators.app} Service page, did not displayed.')
+        sleep(1)
+
+    assert driver.find_element(By.XPATH, '//h2[normalize-space()="STRATEGY & CONSULTING"]').is_displayed()
+    strategy = driver.find_element(By.XPATH, '//h2[normalize-space()="STRATEGY & CONSULTING"]').is_displayed()
+    print(f' Strategy and Consulting is displayed:{strategy}')
+    sleep(1)
+    driver.find_element(By.XPATH, '//span[contains(.,"LEARN MORE")]').click()
+    sleep(1)
+    # Back to service page
+    driver.find_element(By.XPATH, '//a[normalize-space()="Services"]').click()
+    sleep(1)
+    driver.find_element(By.XPATH, '//a[@href="https://www.gopopcorn.ca/social-media-marketing/"]'
+                                  '//span[@class="elementor-button-content-wrapper"]'
+                                  '//span[@class="elementor-button-text"][normalize-space()="LEARN MORE"]').click()
+    sleep(1)
+    # Back to service page
+    driver.find_element(By.XPATH, '//a[normalize-space()="Services"]').click()
+    sleep(1)
+    driver.find_element(By.XPATH, '//a[@href="https://www.gopopcorn.ca/digital-marketing/"]'
+                                  '//span[@class="elementor-button-content-wrapper"]'
+                                  '//span[@class="elementor-button-text"][normalize-space()="LEARN MORE"]').click()
+    sleep(1)
+    # Back to service page
+    driver.find_element(By.XPATH, '//a[normalize-space()="Services"]').click()
+    sleep(1)
+    driver.find_element(By.XPATH, '//a[@href="https://www.gopopcorn.ca/influencer-marketing/"]'
+                                  '//span[@class="elementor-button-content-wrapper"]'
+                                  '//span[@class="elementor-button-text"][normalize-space()="LEARN MORE"]').click()
+    sleep(1)
+    # Back to service page
+    driver.find_element(By.XPATH, '//a[normalize-space()="Services"]').click()
+    sleep(1)
+    driver.find_element(By.XPATH, '//a[@href="https://www.gopopcorn.ca/content-creation/"]'
+                                  '//span[@class="elementor-button-content-wrapper"]'
+                                  '//span[@class="elementor-button-text"][normalize-space()="LEARN MORE"]').click()
+    sleep(1)
+    # Back to service page
+    driver.find_element(By.XPATH, '//a[normalize-space()="Services"]').click()
+    sleep(1)
+
+    assert driver.find_element(By.XPATH, '//h2[normalize-space()="PUBLIC RELATIONS"]').is_displayed()
+    pr = driver.find_element(By.XPATH, '//h2[normalize-space()="PUBLIC RELATIONS"]').is_displayed()
+    print(f' PUBLIC RELATIONS is displayed:{pr}')
+    sleep(1)
+
+    driver.find_element(By.XPATH, '//a[@href="https://www.gopopcorn.ca/public-relations/"]'
+                                  '//span[@class="elementor-button-content-wrapper"]'
+                                  '//span[@class="elementor-button-text"][normalize-space()="LEARN MORE"]').click()
+    sleep(1)
+    # Back to service page
+    driver.find_element(By.XPATH, '//a[normalize-space()="Services"]').click()
+    sleep(1)
+
+    # assert is used to check Elements is displayed and its TRUE!
+    assert driver.find_element(By.XPATH, '//h2[@class="elementor-heading-title elementor-size-xl"]').is_displayed()
+    hwcwt = driver.find_element(By.XPATH, '//h2[@class="elementor-heading-title elementor-size-xl"]').is_displayed()
+    print(f'HOW CAN WE WORK TOGETHER is displayed: {hwcwt}')
+    sleep(1)
+    print(f'All the service page Elements is clickable')
+    sleep(1)
+
+
+
+def jobs_page():
+    driver.get(locators.popcorn_jobs_url)
+    sleep(1)
+    if driver.current_url == locators.popcorn_jobs_url and driver.title == locators.popcorn_jobs_title:
+        print(f'----- We are in Jobs Page!!!!')
+        print(f'-----{locators.app} Jobs page url: {driver.current_url}, Jobs title: {driver.title}')
+    else:
+        print(f'----{locators.app} Jobs page, did not displayed.')
+        sleep(1)
+
+    assert driver.find_element(By.XPATH, '//h2[@class="elementor-heading-title elementor-size-xxl"]').is_displayed()
+    jobs = driver.find_element(By.XPATH, '//h2[@class="elementor-heading-title elementor-size-xxl"]').is_displayed()
+    print(f' JOBS page is displayed: {jobs}')
+    sleep(1)
+
+    driver.find_element(By.XPATH, '//h3[normalize-space()="Account Executive"]').click()
+    sleep(1)
+    if driver.current_url == locators.popcorn_jobs_account_executive_url and driver.title == locators.popcorn_jobs_account_executive_title:
+        sleep(3)
+        print(f'You are in Account Executive page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Jobs"]').click()
+        sleep(1)
+    else:
+        print(f'Something is wrong you are not is correct web page')
+
+    driver.find_element(By.XPATH, '//strong[normalize-space()="Load more listings"]').click()
+    sleep(2)
+
+    driver.find_element(By.XPATH, '//h3[normalize-space()="Account Associate"]').click()
+    sleep(2)
+    driver.find_element(By.XPATH, '//a[normalize-space()="Jobs"]').click()
+    sleep(3)
+
+
+def case_studies():
+    driver.get(locators.popcorn_case_studies_url)
+    if driver.current_url == locators.popcorn_case_studies_url and driver.title == locators.popcorn_case_studies_title:
+        sleep(3)
+        print(f'CASE STUDIES page is displayed')
+        print(f'{locators.app} Case Studies url {locators.popcorn_case_studies_url}, Case studies {locators.popcorn_case_studies_title}')
+    else:
+        print(f'Something went wrong')
+        sleep(1)
+
+    assert driver.find_element(By.XPATH, '//h2[@class="elementor-heading-title elementor-size-xxl"]').is_displayed()
+    CS = driver.find_element(By.XPATH, '//h2[@class="elementor-heading-title elementor-size-xxl"]').is_displayed()
+    print(f'Case Studies page is displayed: {CS}')
+    sleep(1)
+
+    assert driver.find_element(By.XPATH, '//h2[normalize-space()="Here are a few examples of our work:"]').is_displayed()
+    workexamples = driver.find_element(By.XPATH, '//h2[normalize-space()="Here are a few examples of our work:"]').is_displayed()
+    print(f'Here are a few examples of our work title is displayed: {workexamples}')
+    sleep(1)
+
+    # Skype footware
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                     '//h3[@class="elementor-portfolio-item__title"][normalize-space()="SKYE Footwear"]').click()
+    if driver.current_url == locators.popcorn_portfolio_skye_footware_url and driver.title == locators.popcorn_portfolio_skye_footware_title:
+        print(f'You are in Skype Footware Page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # NETGEAR
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Netgear"]').click()
+    if driver.current_url == locators.popcorn_portfolio_netgear_url and driver.title == locators.popcorn_portfolio_netgear_title:
+        print(f'You are in Netgear page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # SAMSUNG
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Samsung"]').click()
+    if driver.current_url == locators.popcorn_portfolio_samsung_url and driver.title == locators.popcorn_portfolio_samsung_title:
+        print(f'Your are in SAMSUNG page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # NEST DESIGNS
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Nest Designs"]').click()
+    if driver.current_url == locators.popcorn_portfolio_nest_design_url and driver.title == locators.popcorn_portfolio_nest_design_title:
+        print(f'Your are in NEST DESIGN page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # Michael Hill Jewellery
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                      '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Michael Hill Jeweller"]').click()
+    if driver.current_url == locators.popcorn_portfolio_michaelhilljewel_url and driver.title == locators.popcorn_portfolio_michaelhilljewel_title:
+        print(f'Your are in MICHAEL HILL JEWELLERY page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # JUST EAT
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Just Eat (Skip The Dishes)"]').click()
+    if driver.current_url == locators.popcorn_portfolio_justeat_url and driver.title == locators.popcorn_portfolio_justeat_title:
+        print(f'Your are in JUST EAT (SKIP THE DISH) page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # PURDY CHOCOLATIER
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Purdys Chocolatier"]').click()
+    if driver.current_url == locators.popcorn_portfolio_purdy_url and driver.title == locators.popcorn_portfolio_purdy_title:
+        print(f'Your are in PURDY CHOCOLATIER page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # TOURISUM VANCOUVER
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Tourism Vancouver"]').click()
+    if driver.current_url == locators.popcorn_portfolio_tourisum_vancouver_url and driver.title == locators.popcorn_portfolio_tourisum_vancouver_title:
+        print(f'Your are in TOURISUM VANCOUVER page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # BETTER THAN BOUILLON
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Better Than Bouillon"]').click()
+    if driver.current_url == locators.popcorn_portfolio_better_than_bouillon_url and driver.title == locators.popcorn_portfolio_better_than_bouillon_title:
+        print(f'Your are in BETTER THAN BOUILLON page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # SHANGRI-LA HOTEL
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Shangri-La Hotel"]').click()
+    if driver.current_url == locators.popcorn_portfolio_shangri_la_hotel_url and driver.title == locators.popcorn_portfolio_shangri_la_hotel_title:
+        print(f'Your are in SHANGRI-LA HOTEL page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # VIRTUOUS PIE
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Virtuous Pie"]').click()
+    if driver.current_url == locators.popcorn_portfolio_virtuous_pie_url and driver.title == locators.popcorn_portfolio_virtuous_pie_title:
+        print(f'Your are in VIRTUOUS PIE page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    # Canadian Federation of Independent Grocers - Popcorn
+    driver.find_element(By.XPATH, '//div[@class="elementor-portfolio elementor-grid elementor-posts-container elementor-posts-masonry"]'
+                                  '//h3[@class="elementor-portfolio-item__title"][normalize-space()="Canadian Federation of Independent Grocers"]').click()
+    if driver.current_url == locators.popcorn_portfolio_CFOIG_url and driver.title == locators.popcorn_portfolio_CFOIG_title:
+        print(f'Your are in Canadian Federation of Independent Grocers - Popcorn page')
+        driver.find_element(By.XPATH, '//a[normalize-space()="Case Studies"]').click()
+    else:
+        print(f'Something is wrong check your code')
+        sleep(1)
+
+    driver.find_element(By.XPATH, '//span[@class="elementor-button-text"]').click()
+    sleep(1)
+
+
 
 def check_blog():
     driver.get(locators.popcorn_url)
@@ -368,14 +617,14 @@ def check_blog():
     # sleep(1)
     #check if Kernel Korner is displayed
     kernel = driver.find_element(By.XPATH, '//h2[contains(., "Kernels Korner")]').is_displayed()
-    sleep(1)
+    sleep(2)
     if kernel is not None:
         print(f'Kernel Korner is displayed: {kernel}.')
     else:
         print(f'Kernel Korner is not displayed: {kernel}.')
 
     driver.find_element(By.CSS_SELECTOR, 'article[id="post-35333"]').click()
-    sleep(1)
+    sleep(5)
     # driver.find_element(By.XPATH, '//span[contains(., "Read More")]').click()
     # sleep(1)
     people = driver.find_element(By.XPATH, '//h1[contains(., " Putting People First at Popcorn")]').is_displayed()
@@ -388,12 +637,13 @@ def check_blog():
         print(f'You are not on the ', people_title.text, 'blog page.')
 
     driver.find_element(By.LINK_TEXT, 'BLOG').click()
-    sleep(2)
+    sleep(3)
 
     element = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35358"]')
     driver.execute_script("arguments[0].scrollIntoView()", element)
+    sleep(2)
     driver.find_element(By.CSS_SELECTOR, 'article[id="post-35358"]').click()
-    sleep(1)
+    sleep(3)
     commitment = driver.find_element(By.XPATH, '//h1[contains(., "Popcorn’s Commitment to Serving Small Businesses")]').is_displayed()
     sleep(1)
     commitment_title= driver.find_element(By.XPATH, '//h1[contains(., "Popcorn’s Commitment to Serving Small Businesses")]')
@@ -403,12 +653,12 @@ def check_blog():
         print('You are not on the ', commitment_title.text, 'blog page.')
 
     driver.find_element(By.LINK_TEXT, 'BLOG').click()
-    sleep(2)
+    sleep(3)
 
     element1= driver.find_element(By.CSS_SELECTOR, 'article[id="post-35370"]')
     driver.execute_script("arguments[0].scrollIntoView()", element1)
     driver.find_element(By.CSS_SELECTOR, 'article[id="post-35370"]').click()
-    sleep(1)
+    sleep(3)
     social = driver.find_element(By.XPATH, '//h1[contains(., "Which Social Media Platform Is Right for Me?")]').is_displayed()
     sleep(1)
     social_title = driver.find_element(By.XPATH, '//h1[contains(., "Which Social Media Platform Is Right for Me?")]')
@@ -418,12 +668,12 @@ def check_blog():
         print('You are not on the ', social_title.text, 'blog page.')
 
     driver.find_element(By.LINK_TEXT, 'BLOG').click()
-    sleep(2)
+    sleep(3)
 
     element2 = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35377"]')
     driver.execute_script("arguments[0].scrollIntoView()", element2)
     driver.find_element(By.CSS_SELECTOR, 'article[id="post-35377"]').click()
-    sleep(1)
+    sleep(3)
     happy = driver.find_element(By.XPATH, '//h1[contains(., "  Let’s Get Creative!")]').is_displayed()
     sleep(1)
     happy_title = driver.find_element(By.XPATH, '//h1[contains(., "  Let’s Get Creative!")]')
@@ -433,13 +683,13 @@ def check_blog():
         print('You are not on the ', happy_title.text, 'blog page.')
 
     driver.find_element(By.LINK_TEXT, 'BLOG').click()
-    sleep(2)
+    sleep(3)
 
     element3 = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35383"]')
     driver.execute_script("arguments[0].scrollIntoView()", element3)
     sleep(1)
     driver.find_element(By.CSS_SELECTOR, 'article[id="post-35383"] ').click()
-    sleep(1)
+    sleep(3)
     news = driver.find_element(By.XPATH, '//h1[contains(., "The News on Tues #7: TikTok Restrictions, PBN’s and Facebook Expansion")]').is_displayed()
     sleep(1)
     news_title = driver.find_element(By.XPATH, '//h1[contains(., "The News on Tues #7: TikTok Restrictions, PBN’s and Facebook Expansion")]')
@@ -449,7 +699,7 @@ def check_blog():
         print('You are not on the ', news_title.text, 'blog page.')
 
     driver.find_element(By.LINK_TEXT, 'BLOG').click()
-    sleep(2)
+    sleep(3)
 
     element4 = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35405"]')
     driver.execute_script("arguments[0].scrollIntoView()", element4)
@@ -465,13 +715,13 @@ def check_blog():
         print('You are not on the ', news2_title.text, 'blog page.')
 
     driver.find_element(By.LINK_TEXT, 'BLOG').click()
-    sleep(2)
+    sleep(3)
 
     element5 = driver.find_element(By.CSS_SELECTOR, 'article[id="post-35414"]')
     driver.execute_script("arguments[0].scrollIntoView()", element5)
     sleep(2)
     driver.find_element(By.CSS_SELECTOR, 'article[id="post-35414"]').click()
-    sleep(1)
+    sleep(3)
     home = driver.find_element(By.XPATH,'//h1[contains(., "The News on Tues #5: Working from home, moving on from COVID, supporting SMB’s.")]').is_displayed()
     sleep(1)
     home_title = driver.find_element(By.XPATH,'//h1[contains(., "The News on Tues #5: Working from home, moving on from COVID, supporting SMB’s.")]')
@@ -482,7 +732,7 @@ def check_blog():
         print('You are not on the ', home_title.text, 'blog page.')
 
     driver.find_element(By.LINK_TEXT, 'BLOG').click()
-    sleep(2)
+    sleep(3)
 
 
 
@@ -495,9 +745,12 @@ def tearDown():
         driver.quit()
 
 
-setUp()
-#check_homepage()
-#check_who_we_are()
-check_blog()
-#check_contact_us_page()
-tearDown()
+# setUp()
+# check_homepage()
+# check_who_we_are()
+# verify_service_page()
+# case_studies()
+# jobs_page()
+#check_blog()
+# check_contact_us_page()
+#tearDown()
